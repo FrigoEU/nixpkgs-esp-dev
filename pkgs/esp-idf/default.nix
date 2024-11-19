@@ -12,6 +12,7 @@
 , stdenv
 , lib
 , fetchFromGitHub
+, fetchgit
 , makeWrapper
 , callPackage
 
