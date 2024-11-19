@@ -38,7 +38,7 @@ let
     rev = rev;
     hash = sha256;
     fetchSubmodules = true;
-    leaveDotGit = true;
+    deepClone = true;
   };
 
   allTools = callPackage (import ./tools.nix) {
