@@ -130,6 +130,8 @@ stdenv.mkDerivation rec {
     mkdir -p $out
     cp -rv . $out/
 
+    cp -r ./.git $out/.git
+
     echo "testje" > $out/testje.txt
 
 
