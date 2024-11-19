@@ -33,9 +33,10 @@
 }:
 
 let
-  src = fetchFromGitHub {
-    owner = "espressif";
-    repo = "esp-idf";
+  src = fetchgit {
+    url = "https://github.com/espressif/esp-idf";
+    # owner = "espressif";
+    # repo = "esp-idf";
     rev = rev;
     sha256 = sha256;
     fetchSubmodules = true;
