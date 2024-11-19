@@ -130,6 +130,9 @@ stdenv.mkDerivation rec {
     mkdir -p $out
     cp -rv . $out/
 
+    echo "testje" > $out/testje.txt
+
+
     # Override the version read by ESP IDF (as it can't be read in the usual way
     # since we don't include the .git directory with that metadata).
     # NOTE: This doesn't perfectly replicate the way the commit name is
