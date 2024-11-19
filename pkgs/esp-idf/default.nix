@@ -41,7 +41,6 @@ let
     sha256 = sha256;
     fetchSubmodules = true;
     leaveDotGit = true;
-    deepClone = true;
   };
 
   allTools = callPackage (import ./tools.nix) {
