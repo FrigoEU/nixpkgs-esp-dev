@@ -130,7 +130,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out
     cp -rv . $out/
 
-    chown -R simon $out/.git
+    chown -R 1000 $out/.git
 
     # Link the Python environment in so that:
     # - The setup hook can set IDF_PYTHON_ENV_PATH to it.
