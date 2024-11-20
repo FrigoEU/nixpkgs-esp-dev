@@ -15,6 +15,7 @@
 , fetchgit
 , makeWrapper
 , callPackage
+, sudo
 
 , python3
 
@@ -130,7 +131,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out
     cp -rv . $out/
 
-    chmod -R 777 $out/.git
+    ${sudo} chmod -R 777 $out/.git
 
     # Link the Python environment in so that:
     # - The setup hook can set IDF_PYTHON_ENV_PATH to it.
