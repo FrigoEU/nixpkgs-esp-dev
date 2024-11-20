@@ -88,7 +88,7 @@ let
       phases = [ "unpackPhase" "installPhase" ];
 
       installPhase = let
-        libPath = lib.makeLibraryPath [
+        libPath = with pkgs; lib.makeLibraryPath [
           stdenv.cc.cc.lib 
           zlib
           libxml2
