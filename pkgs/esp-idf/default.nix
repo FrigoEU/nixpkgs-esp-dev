@@ -138,6 +138,6 @@ stdenv.mkDerivation rec {
     ln -s ${customPython}/lib $out/lib
   '';
   postInstall = ''
-    chmod -R 777 $out/.git
+    sudo chown -R :users $out/.git
   '';
 }
