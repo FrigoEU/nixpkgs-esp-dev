@@ -37,7 +37,7 @@ let
     url = "https://github.com/espressif/esp-idf";
     # owner = "espressif";
     # repo = "esp-idf";
-    rev = rev;
+    ref = rev;
     # sha256 = sha256;
     submodules = true;
   };
