@@ -38,7 +38,7 @@ let
     # owner = "espressif";
     # repo = "esp-idf";
     rev = rev;
-    sha256 = sha256;
+    # sha256 = sha256;
     submodules = true;
   };
 
