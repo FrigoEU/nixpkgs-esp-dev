@@ -39,8 +39,7 @@ let
     # repo = "esp-idf";
     rev = rev;
     sha256 = sha256;
-    fetchSubmodules = true;
-    leaveDotGit = true;
+    submodules = true;
   };
 
   allTools = callPackage (import ./tools.nix) {
