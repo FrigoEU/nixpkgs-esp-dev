@@ -10,6 +10,7 @@
 
   # Dependencies for the various binary tools.
 , zlib
+, libxml2
 , libusb1
 , udev
 }:
@@ -88,7 +89,7 @@ let
       phases = [ "unpackPhase" "installPhase" ];
 
       installPhase = let
-        libPath = with pkgs; lib.makeLibraryPath [
+        libPath = lib.makeLibraryPath [
           stdenv.cc.cc.lib 
           zlib
           libxml2
