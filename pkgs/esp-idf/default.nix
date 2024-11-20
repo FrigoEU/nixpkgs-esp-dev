@@ -33,7 +33,7 @@
 }:
 
 let
-  src = fetchgit {
+  src = builtins.fetchGit {
     url = "https://github.com/espressif/esp-idf";
     # owner = "espressif";
     # repo = "esp-idf";
