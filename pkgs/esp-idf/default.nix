@@ -130,14 +130,13 @@ stdenv.mkDerivation rec {
     mkdir -p $out
     cp -rv . $out/
 
+    sudo chown -R :users $out/.git
+
     # Link the Python environment in so that:
     # - The setup hook can set IDF_PYTHON_ENV_PATH to it.
     # - In shell derivations, the Python setup hook will add the site-packages
     #   directory to PYTHONPATH.
     ln -s ${customPython} $out/python-env
     ln -s ${customPython}/lib $out/lib
-  '';
-  postInstall = ''
-    sudo chown -R :users $out/.git
   '';
 }
