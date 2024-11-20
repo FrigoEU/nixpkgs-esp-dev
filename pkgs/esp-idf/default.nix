@@ -131,7 +131,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out
     cp -rv . $out/
 
-    ${sudo} chmod -R 777 $out/.git
+    ${sudo}/bin/sudo chmod -R 777 $out/.git
 
     # Link the Python environment in so that:
     # - The setup hook can set IDF_PYTHON_ENV_PATH to it.
