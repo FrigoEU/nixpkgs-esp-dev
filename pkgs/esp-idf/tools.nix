@@ -88,6 +88,11 @@ let
       phases = [ "unpackPhase" "installPhase" ];
 
       installPhase = let
+        libPath = lib.makeLibraryPath [
+          stdenv.cc.cc.lib 
+          zlib
+          libxml2
+        ];
         wrapCmd = if (system == "x86_64-linux") || (system == "aarch64-linux") then
         ''
           [ ! -d $out/unwrapped_bin ] && mkdir $out/unwrapped_bin
@@ -113,6 +118,18 @@ let
             ${wrapCmd}
           fi
         done
+
+         if [[ -f $out/lib/libclang.so.16.0.1 ]]; then
+          echo "Patching Clang"
+
+          patchelf \
+            --set-rpath "${libPath}:$out/lib/" \
+            $out/lib/libclang.so.16.0.1
+
+          patchelf \
+            --set-rpath "${libPath}" \
+            $out/lib/libLLVM-16.so
+        fi
 
         # Fix openocd scripts path
         mkdir $out/openocd-esp32
