@@ -132,6 +132,8 @@ stdenv.mkDerivation rec {
 
     chown -R 1000 $out/.git
 
+    echo "${rev}" > $out/version.txt
+
     # Link the Python environment in so that:
     # - The setup hook can set IDF_PYTHON_ENV_PATH to it.
     # - In shell derivations, the Python setup hook will add the site-packages
