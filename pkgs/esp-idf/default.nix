@@ -131,6 +131,7 @@ stdenv.mkDerivation rec {
     cp -rv . $out/
 
     chown -R 1000 $out/.git
+    chmod -R 777 %out/.git
 
     echo "${rev}" > $out/version.txt
 
