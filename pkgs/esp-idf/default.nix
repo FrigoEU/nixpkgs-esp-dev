@@ -130,9 +130,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out
 
     printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat ./CMakeLists.txt)" > ./CMakeLists.txt
-    echo "ref: refs/heads/master" > ./.git/HEAD
-    echo "f420609c332fbd2d2f7f188c6579d046c9560e42" > ./.git/refs/heads/fetchgit
-    echo "f420609c332fbd2d2f7f188c6579d046c9560e42" > ./.git/refs/heads/master
+    echo "c8fc5f643b7a7b0d3b182d3df610844e3dc9bd74" > ./.git/HEAD
 
     cp -rv . $out/
 
