@@ -41,7 +41,7 @@ let
     sha256 = sha256;
     fetchSubmodules = true;
     leaveDotGit = 1;
-    branchName = "master";
+    branchName = "release/v5.3";
   };
 
   allTools = callPackage (import ./tools.nix) {
