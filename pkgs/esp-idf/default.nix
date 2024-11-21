@@ -130,6 +130,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out
 
     printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat ./CMakeLists.txt)" > ./CMakeLists.txt
+    printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat ./tools/cmake/project.cmake)" > ./tools/cmake/project.cmake
 
     cp -rv . $out/
 
