@@ -132,6 +132,7 @@ stdenv.mkDerivation rec {
     printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat ./CMakeLists.txt)" > ./CMakeLists.txt
     echo "ref: refs/heads/master" > ./.git/HEAD
     echo "f420609c332fbd2d2f7f188c6579d046c9560e42" > ./.git/refs/heads/fetchgit
+    echo "f420609c332fbd2d2f7f188c6579d046c9560e42" > ./.git/refs/heads/master
 
     cp -rv . $out/
 
