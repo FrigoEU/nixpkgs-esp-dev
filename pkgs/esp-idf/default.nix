@@ -128,13 +128,12 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out
+
+    printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat ./CMakeLists.txt)" > ./CMakeLists.txt
+
     cp -rv . $out/
 
     echo "${rev}" > $out/version.txt
-    printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat CMakeLists.txt)" > CMakeLists.txt
-
-    chown -R 1000 ./.git
-    chmod -R 777 ./.git
 
     chown -R 1000 $out/.git
     chmod -R 777 $out/.git
