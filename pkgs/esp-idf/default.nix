@@ -130,16 +130,11 @@ stdenv.mkDerivation rec {
     mkdir -p $out
 
     printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat ./CMakeLists.txt)" > ./CMakeLists.txt
-    printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat ./tools/cmake/project.cmake)" > ./tools/cmake/project.cmake
+    cp ./.git/HEAD ./.git/head-ref
 
     cp -rv . $out/
 
     echo "${rev}" > $out/version.txt
-
-    chown -R 1000 $out/.git
-    chmod -R 777 $out/.git
-
-    echo "simon" > $out/simon.txt
 
     # Link the Python environment in so that:
     # - The setup hook can set IDF_PYTHON_ENV_PATH to it.
