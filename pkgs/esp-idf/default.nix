@@ -129,8 +129,6 @@ stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out
 
-    printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat ./CMakeLists.txt)" > ./CMakeLists.txt
-
     # We need to get the commit hash into ./.git/HEAD. The best way I've found is to extract it from .git/packed-refs
     tail -n +2 .git/packed-refs | cut -f 1 -d " " > ./.git/HEAD
 
