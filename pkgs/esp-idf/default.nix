@@ -130,7 +130,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out
 
     printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat ./CMakeLists.txt)" > ./CMakeLists.txt
-    cp ./.git/HEAD ./.git/refs/heads/fetchgit
+    echo "f420609c332fbd2d2f7f188c6579d046c9560e42" > ./.git/refs/heads/fetchgit
 
     cp -rv . $out/
 
