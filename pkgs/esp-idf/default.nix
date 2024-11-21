@@ -41,6 +41,7 @@ let
     sha256 = sha256;
     fetchSubmodules = true;
     leaveDotGit = 1;
+    branchName = "master";
   };
 
   allTools = callPackage (import ./tools.nix) {
@@ -130,7 +131,6 @@ stdenv.mkDerivation rec {
     mkdir -p $out
 
     printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat ./CMakeLists.txt)" > ./CMakeLists.txt
-    touch ./.git/refs/heads/fetchgit
 
     cp -rv . $out/
 
