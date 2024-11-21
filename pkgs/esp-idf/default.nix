@@ -39,9 +39,9 @@ let
     # repo = "esp-idf";
     rev = rev;
     sha256 = sha256;
-    fetchSubmodules = true;
+    fetchSubmodules = false;
     leaveDotGit = 1;
-    branchName = "release/v5.3";
+    branchName = "master";
   };
 
   allTools = callPackage (import ./tools.nix) {
