@@ -130,10 +130,13 @@ stdenv.mkDerivation rec {
     mkdir -p $out
     cp -rv . $out/
 
-    chown -R 1000 $out/.git
-    chmod -R 777 %out/.git
-
     echo "${rev}" > $out/version.txt
+
+    chown -R 1000 ./.git
+    chmod -R 777 ./.git
+
+    chown -R 1000 $out/.git
+    chmod -R 777 $out/.git
 
     # Link the Python environment in so that:
     # - The setup hook can set IDF_PYTHON_ENV_PATH to it.
