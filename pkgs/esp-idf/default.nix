@@ -131,6 +131,7 @@ stdenv.mkDerivation rec {
     cp -rv . $out/
 
     echo "${rev}" > $out/version.txt
+    printf '%s\n%s\n' "set(PROJECT_VER \"${rev}\")" "$(cat CMakeLists.txt)" > CMakeLists.txt
 
     chown -R 1000 ./.git
     chmod -R 777 ./.git
